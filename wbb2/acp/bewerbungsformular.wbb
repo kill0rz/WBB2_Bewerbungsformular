@@ -1,0 +1,56 @@
+<wBBgroupvariablegroup>
+	<name>USER_bewerbungsformular</name>
+	<title>Bewerbungsformular</title>
+	<parent>USER</parent>
+	<securitylevel>1</securitylevel>
+	<acpmode>2</acpmode>
+</wBBgroupvariablegroup>
+
+<wBBgroupvariablegroup>
+	<name>ADMIN_bewerbungsformular</name>
+	<title>Adminoptionen Bewerbungsformular</title>
+	<parent>ADMIN</parent>
+	<securitylevel>2</securitylevel>
+	<acpmode>2</acpmode>
+</wBBgroupvariablegroup>
+
+<wBBgroupvariable>
+	<name>a_can_bewerbungsformular_edit</name>
+	<type>truefalse</type>
+	<defaultvalue>0</defaultvalue>
+	<title>bewerbungsformular-Tippspiel</title>
+	<desc>Benutzer dieser Gruppe können die Optionen des Bewerbungsformulars bearbeiten?</desc>
+	<group>ADMIN_bewerbungsformular</group>
+	<acpmode>2</acpmode>
+</wBBgroupvariable>
+
+<wBBacpmenuitemgroup>
+	<name>bewerbungsformular</name>
+	<condition></condition>
+	<conditiontype>OR</conditiontype>
+	<acpmode>2</acpmode>
+</wBBacpmenuitemgroup>
+
+<wBBacpmenuitem>
+	<name>bewerbungsformular_INDEX</name>
+	<title>Bewerbungsformular</title>
+	<group>bewerbungsformular</group>
+	<link>bewerbungsformular_admin.php?action=info</link>
+	<linkformat>
+		<b>%s</b>
+	</linkformat>
+	<condition>a_can_bewerbungsformular_edit</condition>
+	<conditiontype>OR</conditiontype>
+	<acpmode>2</acpmode>
+</wBBacpmenuitem>
+
+<wBBacpmenuitem>
+	<name>bewerbungsformular_OPTIONS</name>
+	<title>Optionen</title>
+	<group>bewerbungsformular</group>
+	<link>bewerbungsformular_admin.php?action=options</link>
+	<linkformat></linkformat>
+	<condition>a_can_bewerbungsformular_edit</condition>
+	<conditiontype>OR</conditiontype>
+	<acpmode>2</acpmode>
+</wBBacpmenuitem>

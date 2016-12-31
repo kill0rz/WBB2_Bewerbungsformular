@@ -471,7 +471,7 @@ if ($step == "database") {
 	print " ";
 	print "<b>Fertig!</b><p>";
 	print "Die Installation wurde erfolgreich abgeschlossen.<br />";
-	print "Sie k&ouml;nnen das Bewerbungsformular $version jetzt benutzen.<p>";
+	print "Sie k&ouml;nnen das Bewerbungsformular {$version} jetzt benutzen.<p>";
 	print "Bitte richten sie es noch im <a href=\"./index.php\">ACP</a> ein, und l&ouml;schen Sie diese<br />";
 	print "Installationsdateien aus dem ACP-Verzeichnis:<br />";
 	print "<pre>bewerbungsformular_setup.php, bewerbungsformular_de.lng, bewerbungsformular.wbb, bewerbungsformular.sql</pre>";
