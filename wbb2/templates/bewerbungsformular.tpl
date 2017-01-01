@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" dir="{$lang->items['LANG_GLOBAL_DIRECTION']}" lang="{$lang->items['LANG_GLOBAL_LANGCODE']}" xml:lang="{$lang->items['LANG_GLOBAL_LANGCODE']}">
 
 <head>
-	<title>$master_board_name | Pic-Upload v3</title>
+	<title>$master_board_name | {$lang->items['LANG_BEWERBFRM_TITLE']}</title>
 	$headinclude
 </head>
 
