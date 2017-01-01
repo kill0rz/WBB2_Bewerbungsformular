@@ -1,0 +1,21 @@
+# Languagepack-Export: Deutsch
+# Languagecode: de
+# Date: 01.01.2017 11:12:47
+# wBB Version: 2.3
+
+
+
+[acp_wm2018]
+
+# <text:LANG_ACP_WM2018_CHOICE>Bitte w&auml;hlen</LANG_ACP_WM2018_CHOICE:text>
+
+
+
+[bewerbfrm]
+
+<text:LANG_BEWERBFRM_TITLE>Bewerbungsformular</LANG_BEWERBFRM_TITLE:text>
+
+
+[wiw]
+
+<text:LANG_WIW_FILE_BEWERBFRM><a href="bewerbungsformular.php$SID_ARG_1ST" target="_blank">Bewerbungsformular</a></LANG_WIW_FILE_BEWERBFRM:text>
