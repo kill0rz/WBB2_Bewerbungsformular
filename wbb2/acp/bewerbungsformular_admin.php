@@ -49,6 +49,54 @@ switch ($action) {
 		eval("\$tpl->output(\"" . $tpl->get('bewerbungsformular_options', 1) . "\");");
 		break;
 
+	case 'editfield':
+		if (isset($_GET['fieldid']) && trim($_GET['fieldid']) != '') {
+			// open field editor
+			$fieldid = intval(trim($_GET['fieldid']));
+
+			$bewerbungsformular_options_bit_var = '';
+			$sql = "SELECT f.*,ft.typename FROM bb" . $n . "_bewerbungsformular_fields f JOIN bb" . $n . "_bewerbungsformular_fieldtypes ft ON ft.ID=f.fieldtype WHERE f.ID='" . mysqli_real_escape_string($db->link_id, $fieldid) . "' LIMIT 1;";
+			$result = $db->query($sql);
+			if ($db->num_rows($result) > 0) {
+				$savefield_page_options = '';
+				$savefield_fieldtype_options = '';
+
+				while ($row = $db->fetch_array($result)) {
+					// page
+					for ($page = 1; $page <= get_next_page(); $page++) {
+						if ($page == intval($row['page'])) {
+							$savefield_page_options .= "<option value='{$page}' selected>{$page}</option>\n";
+						} else {
+							$savefield_page_options .= "<option value='{$page}'>{$page}</option>\n";
+						}
+					}
+
+					// fieltype
+					$sql2 = "SELECT * FROM bb" . $n . "_bewerbungsformular_fieldtypes;";
+					$result2 = $db->query($sql2);
+					while ($row2 = $db->fetch_array($result2)) {
+						if ($row2['ID'] == $row['fieldtype']) {
+							$savefield_fieldtype_options .= "<option value='{$row2["ID"]}' selected>{$row2['typename']}</option>\n";
+						} else {
+							$savefield_fieldtype_options .= "<option value='{$row2["ID"]}'>{$row2['typename']}</option>\n";
+						}
+					}
+					eval("\$bewerbungsformular_editfield_bit .= \"" . $tpl->get('bewerbungsformular_editfield_bit', 1) . "\";");
+				}
+
+				eval("\$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_1'] = \"" . $lang->get4eval("LANG_ACP_BEWERBFRM_TPL_EDITFIELD_1") . "\";");
+
+				eval("\$tpl->output(\"" . $tpl->get('bewerbungsformular_editfield', 1) . "\");");
+			} else {
+				// invalid field ID
+				header("Location: bewerbungsformular_admin.php?action=options&sid={$session['hash']}");
+			}
+		} else {
+			// params missing
+			header("Location: bewerbungsformular_admin.php?action=options&sid={$session['hash']}");
+		}
+		break;
+
 	default:
 		eval("\$tpl->output(\"" . $tpl->get('bewerbungsformular_info', 1) . "\");");
 		break;

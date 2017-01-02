@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="{$lang->items['LANG_GLOBAL_ENCODING']}"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{$lang->items['LANG_GLOBAL_DIRECTION']}" lang="{$lang->items['LANG_GLOBAL_LANGCODE']}" xml:lang="{$lang->items['LANG_GLOBAL_LANGCODE']}">
+
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html;charset={$lang->items['LANG_GLOBAL_ENCODING']}" />
+	<link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+	<table cellpadding=2 cellspacing=1 border=0 class="tblborder" width="95%" align="center">
+		<tr class="tblhead">
+			<td colspan=5>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_1']}</td>
+		</tr>
+		<form name="editfield" method="post" action="./bewerbungsformular_admin.php?action=savefield&amp;fieldid={$row['ID']}&amp;sid={$session['hash']}">
+			<tr class="secondrow">
+				<td colspan=2><strong><p><a href="./bewerbungsformular_admin.php?action=delfield&amp;fieldid={$row['ID']}&amp;sid={$session['hash']}" style="color:red" alt="{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_4']}">{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_4']}</a></p></strong></td>
+			</tr>
+			<tr class="firstrow">
+				<td><strong><u><p>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_2']}</p></u></strong></td>
+				<td><strong><u><p>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_3']}</p></u></strong></td>
+			</tr>
+			$bewerbungsformular_editfield_bit
+			<tr class="secondrow">
+				<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_6']}</td>
+				<td>
+					<input type="submit" name="formsub" value="Speichern!">
+				</td>
+			</tr>
+		</form>
+	</table>
+</body>
+
+</html>
