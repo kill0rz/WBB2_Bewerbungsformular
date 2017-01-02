@@ -86,7 +86,7 @@ if (!$step) {
   </tr>
   <tr>
    <td>PHP Version</td>
-   <td>5.3</td>
+   <td>5.6</td>
    <td><span style="color: ' . ((version_compare($phpversion, "5.6") == -1) ? ('red') : ('lime')) . '">' . $phpversion . '</span></td>
   </tr>
   <tr>
@@ -114,11 +114,6 @@ if (!$step) {
    <td>Ja</td>
    <td><span style="color: ' . ((!is_file("../acp/bewerbungsformular_admin.php")) ? ('red') : ('lime')) . '">' . ((is_file("../acp/bewerbungsformular_admin.php")) ? ('Ja') : ('Nein')) . '</span></td>
   </tr>
-  <tr>
-   <td>ACP-Template "/acp/templates/bewerbungsformular_info.htm"</td>
-   <td>Ja</td>
-   <td><span style="color: ' . ((!is_file("../acp/templates/bewerbungsformular_info.htm")) ? ('red') : ('lime')) . '">' . ((is_file("../acp/templates/bewerbungsformular_info.htm")) ? ('Ja') : ('Nein')) . '</span></td>
-  </tr>
 </table>
  <p><i>Sollten eine oder mehrere Voraussetzungen nicht erf&uuml;llt sein, kann ein einwandfreier Betrieb des Bewerbungsformulars nicht gew&auml;hrleistet werden.</i></p>
  <br />
@@ -143,22 +138,24 @@ if (!$step) {
 	$filefehlta = '';
 	if (!is_file("./bewerbungsformular_de.lng")) {
 		$filefehlt = 1;
-		$filefehlta .= "<li>Sprachdatei \"/acp/bewerbungsformular_de.lng\" nicht gefunden</li>";}
+		$filefehlta .= "<li>Sprachdatei \"/acp/bewerbungsformular_de.lng\" nicht gefunden</li>";
+	}
 	if (!is_file("./bewerbungsformular.wbb")) {
 		$filefehlt = 2;
-		$filefehlta .= "<li>Rechtedatei \"/acp/bewerbungsformular.wbb\" nicht gefunden</li>";}
+		$filefehlta .= "<li>Rechtedatei \"/acp/bewerbungsformular.wbb\" nicht gefunden</li>";
+	}
 	if (!is_file("./bewerbungsformular.sql")) {
 		$filefehlt = 3;
-		$filefehlta .= "<li>SQL-Datei \"/acp/bewerbungsformular.sql\" nicht gefunden</li>";}
+		$filefehlta .= "<li>SQL-Datei \"/acp/bewerbungsformular.sql\" nicht gefunden</li>";
+	}
 	if (!is_file("../bewerbungsformular.php")) {
 		$filefehlt = 4;
-		$filefehlta .= "<li>Haupt-Datei \"/bewerbungsformular.php\" nicht gefunden</li>";}
+		$filefehlta .= "<li>Haupt-Datei \"/bewerbungsformular.php\" nicht gefunden</li>";
+	}
 	if (!is_file("./bewerbungsformular_admin.php")) {
 		$filefehlt = 5;
-		$filefehlta .= "<li>ACP-Datei \"acp/bewerbungsformular_admin.php\" nicht gefunden</li>";}
-	if (!is_file("./templates/bewerbungsformular_info.htm")) {
-		$filefehlt = 6;
-		$filefehlta .= "<li>ACP-Template \"/acp/templates/bewerbungsformular_info.htm\" nicht gefunden</li>";}
+		$filefehlta .= "<li>ACP-Datei \"acp/bewerbungsformular_admin.php\" nicht gefunden</li>";
+	}
 
 	if ($filefehlt > 0) {
 		print "<br />\n";
