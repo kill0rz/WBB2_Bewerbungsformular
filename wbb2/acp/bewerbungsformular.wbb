@@ -1,5 +1,5 @@
 <wBBgroupvariablegroup>
-	<name>USER_bewerbungsformular</name>
+	<name>USER_BEWERBUNGSFORMULARy</name>
 	<title>Bewerbungsformular</title>
 	<parent>USER</parent>
 	<securitylevel>1</securitylevel>
@@ -7,7 +7,7 @@
 </wBBgroupvariablegroup>
 
 <wBBgroupvariablegroup>
-	<name>ADMIN_bewerbungsformular</name>
+	<name>ADMIN_BEWERBUNGSFORMULAR</name>
 	<title>Adminoptionen Bewerbungsformular</title>
 	<parent>ADMIN</parent>
 	<securitylevel>2</securitylevel>
@@ -18,8 +18,8 @@
 	<name>a_can_bewerbungsformular_edit</name>
 	<type>truefalse</type>
 	<defaultvalue>0</defaultvalue>
-	<title>bewerbungsformular-Tippspiel</title>
-	<desc>Benutzer dieser Gruppe können die Optionen des Bewerbungsformulars bearbeiten?</desc>
+	<title>Bewerbungsformular</title>
+	<desc>Benutzer dieser Gruppe k&ouml;nnen die Optionen des Bewerbungsformulars bearbeiten?</desc>
 	<group>ADMIN_bewerbungsformular</group>
 	<acpmode>2</acpmode>
 </wBBgroupvariable>
