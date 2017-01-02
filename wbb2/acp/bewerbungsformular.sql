@@ -17,3 +17,11 @@ CREATE TABLE `bb1_bewerbungsformular_fields` (
   KEY `fieldtype` (`fieldtype`),
   CONSTRAINT `bb1_bewerbungsformular_fields_ibfk_2` FOREIGN KEY (`fieldtype`) REFERENCES `bb1_bewerbungsformular_fieldtypes` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+INSERT INTO `bb1_bewerbungsformular_fieldtypes` (`ID`, `typename`) VALUES
+(1, 'dropdown'),
+(2, 'number'),
+(3, 'text'),
+(4, 'textarea'),
+(5, 'checkbox');
