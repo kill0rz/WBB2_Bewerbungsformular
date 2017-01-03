@@ -6,9 +6,10 @@
 	<title></title>
 	<meta http-equiv="Content-Type" content="text/html;charset={$lang->items['LANG_GLOBAL_ENCODING']}" />
 	<link rel="stylesheet" href="css/main.css" />
+	<script src="./js/bewerbungsformular.js" type="text/javascript"></script>
 </head>
 
-<body>
+<body onLoad="toggleVisibility();">
 	<table cellpadding=2 cellspacing=1 border=0 class="tblborder" width="95%" align="center">
 		<tr class="tblhead">
 			<td colspan=5>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_1']}</td>
@@ -21,8 +22,7 @@
 				<td><strong><u><p>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_2']}</p></u></strong></td>
 				<td><strong><u><p>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_3']}</p></u></strong></td>
 			</tr>
-			<input type="hidden" name="savefield_id" value="{$fieldid}">
-			$bewerbungsformular_editfield_bit
+			<input type="hidden" name="savefield_id" value="{$fieldid}"> $bewerbungsformular_editfield_bit
 			<tr class="secondrow">
 				<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_6']}</td>
 				<td>

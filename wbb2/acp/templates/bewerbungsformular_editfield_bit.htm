@@ -13,16 +13,21 @@
 <tr class="secondrow">
 	<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_3']}</td>
 	<td>
-		<select name="savefield_fieldtype">
+		<select id="fieldtype" name="savefield_fieldtype" onchange="toggleVisibility();">
 			{$savefield_fieldtype_options}
 		</select>
 	</td>
 </tr>
 <tr class="firstrow">
 	<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_4']}</td>
-	<td><input type="text" name="savefield_fieldname" value="{$row['fieldname']}" placeholder="Name des Feldes"></td>
+	<td>
+		<textarea name="savefield_fieldname" cols="150" rows="10">{$row['fieldname']}</textarea>
+	</td>
 </tr>
 <tr class="secondrow">
 	<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_5']}</td>
-	<td><textarea name="savefield_fieldcontent">{$row['fieldcontent']}</textarea></td>
+	<td>
+		<textarea id="fieldcontent" name="savefield_fieldcontent" cols="150" rows="10">{$row['fieldcontent']}</textarea>
+		{$dropdown_options_box}
+	</td>
 </tr>
