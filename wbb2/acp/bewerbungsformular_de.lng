@@ -36,11 +36,11 @@
 <text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_4>&gt;&gt;Feld l&ouml;schen&lt;&lt;</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_4:text>
 <text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_5>Speichern!</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_5:text>
 
-<text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_1>ID</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_1:text>
-<text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_2>Seite</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_2:text>
-<text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_3>Feldtyp</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_3:text>
-<text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_4>Feldname</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_4:text>
-<text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_5>Feldinhalt</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_5:text>
+<text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_1>ID:</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_1:text>
+<text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_2>Seite:</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_2:text>
+<text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_3>Feldtyp:</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_3:text>
+<text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_4>Beschreibung des Feldes (linke Seite):</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_4:text>
+<text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_5>Vorgefertigter Inhalt des Feldes:<br /> <b>dropdown</b> - &Uuml;ber &lt;option&gt;&lt;/option&gt; einzelne Felder hinzuf&uuml;gen.<br /> <b>textarea</b> und <b>text</b> - Text, der bei Aufruf drin stehen soll<br /><b>number</b> - Zahl, die bei Aufruf drin stehen soll<br /> <b>checkbox</b> - Jede Zeile eine Option, die ausgew&auml;hlt werden kann</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_5:text>
 <text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_6>Speichern</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_6:text>
 
 <text:LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_1>Bitte gib an, auf welcher Seite das Feld erscheinen soll!</LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_1:text>
