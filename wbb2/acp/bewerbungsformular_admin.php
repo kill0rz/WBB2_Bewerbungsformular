@@ -108,12 +108,16 @@ switch ($action) {
 			$error .= $lang->items["LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_2"] . "<br />";
 		}
 
-		if (!isset($_POST['formsub']) || trim($_POST['formsub']) != $lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_5']) {
-			$error .= $lang->items["LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_3"] . "<br />";
+		if (!isset($_POST['savefield_fieldtype']) || trim($_POST['savefield_fieldtype']) == '') {
+			$error .= $lang->items["LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_5"] . "<br />";
 		}
 
 		if (!isset($_POST['savefield_id']) || trim($_POST['savefield_id']) == '') {
 			$error .= $lang->items["LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_4"] . "<br />";
+		}
+
+		if (!isset($_POST['formsub']) || trim($_POST['formsub']) != $lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_5']) {
+			$error .= $lang->items["LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_3"] . "<br />";
 		}
 
 		if ($error != '') {
@@ -122,7 +126,7 @@ switch ($action) {
 		} else {
 			// Speichern!
 			$fieldcontent = (isset($_POST['savefield_fieldcontent']) && trim($_POST['savefield_fieldcontent']) != '') ? mysqli_real_escape_string($db->link_id, trim($_POST['savefield_fieldcontent'])) : '';
-			$sql = "UPDATE bb" . $n . "_bewerbungsformular_fields SET fieldcontent='" . $fieldcontent . "', fieldname='" . mysqli_real_escape_string($db->link_id, trim($_POST['savefield_fieldname'])) . "', page='" . intval(trim($_POST['savefield_page'])) . "' WHERE ID='" . intval(trim($_POST['savefield_id'])) . "';";
+			$sql = "UPDATE bb" . $n . "_bewerbungsformular_fields SET fieldcontent='" . $fieldcontent . "', fieldname='" . mysqli_real_escape_string($db->link_id, trim($_POST['savefield_fieldname'])) . "', page='" . intval(trim($_POST['savefield_page'])) . "', fieldtype='" . intval(trim($_POST['savefield_fieldtype'])) . "' WHERE ID='" . intval(trim($_POST['savefield_id'])) . "';";
 			$db->query($sql);
 
 			//todo
