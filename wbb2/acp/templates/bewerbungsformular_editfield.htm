@@ -13,15 +13,15 @@
 		<tr class="tblhead">
 			<td colspan=5>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_1']}</td>
 		</tr>
-		<form name="editfield" method="post" action="./bewerbungsformular_admin.php?action=savefield&amp;fieldid={$row['ID']}&amp;sid={$session['hash']}">
+		<form name="editfield" method="post" action="./bewerbungsformular_admin.php?action=savefield&amp;fieldid={$fieldid}&amp;sid={$session['hash']}">
 			<tr class="secondrow">
-				<td colspan=2><strong><p><a href="./bewerbungsformular_admin.php?action=delfield&amp;fieldid={$row['ID']}&amp;sid={$session['hash']}" style="color:red" alt="{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_4']}">{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_4']}</a></p></strong></td>
+				<td colspan=2><strong><p><a href="./bewerbungsformular_admin.php?action=delfield&amp;fieldid={$fieldid}&amp;sid={$session['hash']}" style="color:red" alt="{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_4']}">{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_4']}</a></p></strong></td>
 			</tr>
 			<tr class="firstrow">
 				<td><strong><u><p>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_2']}</p></u></strong></td>
 				<td><strong><u><p>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_3']}</p></u></strong></td>
 			</tr>
-			<input type="hidden" name="savefield_id" value="{$row['ID']}">
+			<input type="hidden" name="savefield_id" value="{$fieldid}">
 			$bewerbungsformular_editfield_bit
 			<tr class="secondrow">
 				<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_6']}</td>
