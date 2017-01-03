@@ -135,7 +135,33 @@ switch ($action) {
 
 			header("Location: bewerbungsformular_admin.php?action=options&sid={$session['hash']}");
 		}
+		break;
 
+	case 'delfield':
+		$error = '';
+		if (!isset($_GET['fieldid']) || trim($_GET['fieldid']) == '') {
+			$error .= $lang->items["LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_4"] . "<br />";
+		} else {
+			$fieldid = intval(trim($_GET['fieldid']));
+		}
+
+		if ($error != '') {
+			// Es gab einen Fehler
+			eval("\$tpl->output(\"" . $tpl->get('bewerbungsformular_error', 1) . "\");");
+		} else {
+			if (isset($_POST['dodel']) && trim($_POST['dodel']) == 'true') {
+				// go ahead and del it
+				$sql = "DELETE FROM bb" . $n . "_bewerbungsformular_fields WHERE ID='" . mysqli_real_escape_string($db->link_id, $fieldid) . "'";
+				$db->query($sql);
+
+				header("Location: bewerbungsformular_admin.php?action=options&sid={$session['hash']}");
+
+			} else {
+				// ask user if field should really be deleted
+				eval("\$lang->items['LANG_ACP_BEWERBFRM_TPL_DELFIELD_1'] = \"" . $lang->get4eval("LANG_ACP_BEWERBFRM_TPL_DELFIELD_1") . "\";");
+				eval("\$tpl->output(\"" . $tpl->get('bewerbungsformular_delfield', 1) . "\");");
+			}
+		}
 		break;
 
 	default:
