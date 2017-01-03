@@ -23,6 +23,7 @@ if (isset($_REQUEST['action'])) {
 function get_next_page() {
 	global $db, $n;
 	$sql = "SELECT page FROM bb" . $n . "_bewerbungsformular_fields GROUP BY page ORDER BY page;";
+
 	$result = $db->query($sql);
 	$pagecount = 0;
 	while ($row = $db->fetch_array($result)) {
@@ -129,8 +130,7 @@ switch ($action) {
 			$sql = "UPDATE bb" . $n . "_bewerbungsformular_fields SET fieldcontent='" . $fieldcontent . "', fieldname='" . mysqli_real_escape_string($db->link_id, trim($_POST['savefield_fieldname'])) . "', page='" . intval(trim($_POST['savefield_page'])) . "', fieldtype='" . intval(trim($_POST['savefield_fieldtype'])) . "' WHERE ID='" . intval(trim($_POST['savefield_id'])) . "';";
 			$db->query($sql);
 
-			//todo
-			//	erfolgsmeldung, redirect
+			header("Location: bewerbungsformular_admin.php?action=options&sid={$session['hash']}");
 		}
 
 		break;
