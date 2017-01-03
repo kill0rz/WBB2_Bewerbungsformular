@@ -101,15 +101,19 @@ switch ($action) {
 		// check if all required fields are filled
 		$error = '';
 		if (!isset($_POST['savefield_page']) || trim($_POST['savefield_page']) == '') {
-			$error = $lang->items["LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_1"];
+			$error .= $lang->items["LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_1"] . "<br />";
 		}
 
 		if (!isset($_POST['savefield_fieldname']) || trim($_POST['savefield_fieldname']) == '') {
-			$error = $lang->items["LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_2"];
+			$error .= $lang->items["LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_2"] . "<br />";
 		}
 
 		if (!isset($_POST['formsub']) || trim($_POST['formsub']) != $lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_5']) {
-			$error = $lang->items["LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_3"];
+			$error .= $lang->items["LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_3"] . "<br />";
+		}
+
+		if (!isset($_POST['savefield_id']) || trim($_POST['savefield_id']) == '') {
+			$error .= $lang->items["LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_4"] . "<br />";
 		}
 
 		if ($error != '') {
@@ -117,6 +121,12 @@ switch ($action) {
 			eval("\$tpl->output(\"" . $tpl->get('bewerbungsformular_error', 1) . "\");");
 		} else {
 			// Speichern!
+			$fieldcontent = (isset($_POST['savefield_fieldcontent']) && trim($_POST['savefield_fieldcontent']) != '') ? mysqli_real_escape_string($db->link_id, trim($_POST['savefield_fieldcontent'])) : '';
+			$sql = "UPDATE bb" . $n . "_bewerbungsformular_fields SET fieldcontent='" . $fieldcontent . "', fieldname='" . mysqli_real_escape_string($db->link_id, trim($_POST['savefield_fieldname'])) . "', page='" . intval(trim($_POST['savefield_page'])) . "' WHERE ID='" . intval(trim($_POST['savefield_id'])) . "';";
+			$db->query($sql);
+
+			//todo
+			//	erfolgsmeldung, redirect
 		}
 
 		break;
