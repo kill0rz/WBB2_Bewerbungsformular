@@ -51,7 +51,6 @@ switch ($action) {
 		$result = $db->query($sql);
 		if ($db->num_rows($result) > 0) {
 			$newfield_fieldtype_options = '';
-
 			while ($row = $db->fetch_array($result)) {
 				$newfield_fieldtype_options .= "<option value='{$row["ID"]}'>{$row['typename']}</option>\n";
 			}
@@ -69,6 +68,36 @@ switch ($action) {
 
 		eval("\$tpl->output(\"" . $tpl->get('bewerbungsformular_options', 1) . "\");");
 		break;
+
+	case 'newfield':
+		$error = '';
+		if (!isset($_POST['newfield_page']) || trim($_POST['newfield_page']) == '') {
+			$error .= $lang->items["LANG_ACP_BEWERBFRM_TPL_NEWFIELD_ERROR_1"] . "<br />";
+		}
+
+		if (!isset($_POST['newfield_fieldname']) || trim($_POST['newfield_fieldname']) == '') {
+			$error .= $lang->items["LANG_ACP_BEWERBFRM_TPL_NEWFIELD_ERROR_2"] . "<br />";
+		}
+
+		if (!isset($_POST['newfield_fieldtype']) || trim($_POST['newfield_fieldtype']) == '') {
+			$error .= $lang->items["LANG_ACP_BEWERBFRM_TPL_NEWFIELD_ERROR_3"] . "<br />";
+		}
+
+		if (!isset($_POST['formsub'])) {
+			$error .= $lang->items["LANG_ACP_BEWERBFRM_TPL_NEWFIELD_ERROR_4"] . "<br />";
+		}
+
+		if ($error != '') {
+			// Es gab einen Fehler
+			eval("\$tpl->output(\"" . $tpl->get('bewerbungsformular_error', 1) . "\");");
+		} else {
+			// Speichern!
+			$fieldcontent = (isset($_POST['newfield_fieldcontent']) && trim($_POST['newfield_fieldcontent']) != '') ? mysqli_real_escape_string($db->link_id, trim($_POST['newfield_fieldcontent'])) : '';
+			$sql = "INSERT INTO bb" . $n . "_bewerbungsformular_fields (fieldcontent,fieldname,page,fieldtype) VALUES('" . $fieldcontent . "','" . mysqli_real_escape_string($db->link_id, trim($_POST['newfield_fieldname'])) . "','" . intval(trim($_POST['newfield_page'])) . "','" . intval(trim($_POST['newfield_fieldtype'])) . "');";
+			$db->query($sql);
+
+			header("Location: bewerbungsformular_admin.php?action=options&sid={$session['hash']}");
+		}
 
 	case 'editfield':
 		if (isset($_GET['fieldid']) && trim($_GET['fieldid']) != '') {

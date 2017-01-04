@@ -21,7 +21,7 @@
 			<tr class="secondrow">
 				<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_2']}</td>
 				<td>
-					<select name="newfield_page">
+					<select name="newfield_page" required>
 						{$newfield_page_options}
 					</select>
 				</td>
@@ -29,7 +29,7 @@
 			<tr class="firstrow">
 				<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_3']}</td>
 				<td>
-					<select id="fieldtype" name="newfield_fieldtype" onchange="toggleVisibility();">
+					<select id="fieldtype" name="newfield_fieldtype" onchange="toggleVisibility();" required>
 						{$newfield_fieldtype_options}
 					</select>
 				</td>
@@ -37,7 +37,7 @@
 			<tr class="secondrow">
 				<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_4']}</td>
 				<td>
-					<textarea name="newfield_fieldname" cols="100" rows="10">{$row['fieldname']}</textarea>
+					<textarea name="newfield_fieldname" cols="100" rows="10" required>{$row['fieldname']}</textarea>
 				</td>
 			</tr>
 			<tr class="firstrow">

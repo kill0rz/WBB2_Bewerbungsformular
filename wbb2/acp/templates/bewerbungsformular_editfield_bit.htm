@@ -5,7 +5,7 @@
 <tr class="firstrow">
 	<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_2']}</td>
 	<td>
-		<select name="savefield_page">
+		<select name="savefield_page" required>
 			{$savefield_page_options}
 		</select>
 	</td>
@@ -13,7 +13,7 @@
 <tr class="secondrow">
 	<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_3']}</td>
 	<td>
-		<select id="fieldtype" name="savefield_fieldtype" onchange="toggleVisibility();">
+		<select id="fieldtype" name="savefield_fieldtype" required>
 			{$savefield_fieldtype_options}
 		</select>
 	</td>
@@ -21,7 +21,7 @@
 <tr class="firstrow">
 	<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_4']}</td>
 	<td>
-		<textarea name="savefield_fieldname" cols="100" rows="10">{$row['fieldname']}</textarea>
+		<textarea name="savefield_fieldname" cols="100" rows="10" required>{$row['fieldname']}</textarea>
 	</td>
 </tr>
 <tr class="secondrow">
