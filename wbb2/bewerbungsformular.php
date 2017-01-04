@@ -11,9 +11,9 @@ if (isset($_REQUEST['page'])) {
 	$page = 1;
 }
 
-$sql = "SELECT page FROM bb" . $n . "_bewerbungsformular_fields WHERE page='" . $page . "'ORDER BY ID ASC;";
-$result = $db->query($sql);
-while ($row = $db->fetch_array($sql)) {
+$sql_query = "SELECT page FROM bb" . $n . "_bewerbungsformular_fields WHERE page='" . $page . "'ORDER BY ID ASC;";
+$result = $db->query($sql_query);
+while ($row = $db->fetch_array($result)) {
 	$id = intval($row['ID']);
 	$fieldcontent = htmlentities($row['fieldcontent']);
 	eval("\$bewerbungsformular_field_bit .= \"" . $tpl->get('bewerbungsformular_field_bit', 1) . "\";");
