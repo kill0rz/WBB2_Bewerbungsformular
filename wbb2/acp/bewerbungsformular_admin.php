@@ -83,8 +83,6 @@ switch ($action) {
 						}
 					}
 
-					// check for options-box
-					eval("\$dropdown_options_box .= \"" . $tpl->get('bewerbungsformular_editfield_dropdown_options_box', 1) . "\";");
 					eval("\$bewerbungsformular_editfield_bit .= \"" . $tpl->get('bewerbungsformular_editfield_bit', 1) . "\";");
 				}
 
