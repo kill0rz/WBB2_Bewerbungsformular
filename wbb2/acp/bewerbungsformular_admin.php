@@ -22,7 +22,7 @@ if (isset($_REQUEST['action'])) {
 
 function get_next_page() {
 	global $db, $n;
-	$sql = "SELECT page FROM bb" . $n . "_bewerbungsformular_fields GROUP BY page ORDER BY page;";
+	$sql = "SELECT page FROM bb" . $n . "_bewerbungsformular_fields GROUP BY page ORDER BY page ASC, ID ASC;";
 
 	$result = $db->query($sql);
 	$pagecount = 0;
@@ -38,6 +38,26 @@ function get_next_page() {
 
 switch ($action) {
 	case 'options':
+		// Felder hinzufügen
+
+		// page
+		$newfield_page_options = '';
+		for ($page = 1; $page <= get_next_page(); $page++) {
+			$newfield_page_options .= "<option value='{$page}'>{$page}</option>\n";
+		}
+
+		// fieltype
+		$sql = "SELECT ID,typename FROM bb" . $n . "_bewerbungsformular_fieldtypes;";
+		$result = $db->query($sql);
+		if ($db->num_rows($result) > 0) {
+			$newfield_fieldtype_options = '';
+
+			while ($row = $db->fetch_array($result)) {
+				$newfield_fieldtype_options .= "<option value='{$row["ID"]}'>{$row['typename']}</option>\n";
+			}
+		}
+
+		// Felder bearbeiten
 		$count = 0;
 		$bewerbungsformular_options_bit_var = '';
 		$sql = "SELECT * FROM bb" . $n . "_bewerbungsformular_fields ORDER BY page ASC, fieldtype ASC, fieldname ASC;";

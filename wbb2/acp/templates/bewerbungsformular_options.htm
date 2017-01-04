@@ -9,6 +9,52 @@
 </head>
 
 <body>
+	<form name="editfield" method="post" action="./bewerbungsformular_admin.php?action=newfield&amp;fieldid={$fieldid}&amp;sid={$session['hash']}">
+		<table cellpadding=4 cellspacing=1 border=0 class="tblborder" width="95%" align="center">
+			<tr class="tblhead">
+				<td colspan=5>{$lang->items['LANG_ACP_BEWERBFRM_TPL_OPTIONS_6']}</td>
+			</tr>
+			<tr class="firstrow">
+				<td><strong><u><p>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_2']}</p></u></strong></td>
+				<td><strong><u><p>{$lang->items['LANG_ACP_BEWERBFRM_TPL_EDITFIELD_3']}</p></u></strong></td>
+			</tr>
+			<tr class="secondrow">
+				<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_2']}</td>
+				<td>
+					<select name="newfield_page">
+						{$newfield_page_options}
+					</select>
+				</td>
+			</tr>
+			<tr class="firstrow">
+				<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_3']}</td>
+				<td>
+					<select id="fieldtype" name="newfield_fieldtype" onchange="toggleVisibility();">
+						{$newfield_fieldtype_options}
+					</select>
+				</td>
+			</tr>
+			<tr class="secondrow">
+				<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_4']}</td>
+				<td>
+					<textarea name="newfield_fieldname" cols="100" rows="10">{$row['fieldname']}</textarea>
+				</td>
+			</tr>
+			<tr class="firstrow">
+				<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_5']}</td>
+				<td>
+					<textarea id="fieldcontent" name="newfield_fieldcontent" cols="100" rows="10">{$row['fieldcontent']}</textarea>
+				</td>
+			</tr>
+			<tr class="secondrow">
+				<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_6']}</td>
+				<td>
+					<input type="submit" name="formsub" value="{$lang->items['LANG_ACP_BEWERBFRM_TPL_OPTIONS_7']}">
+				</td>
+			</tr>
+		</table>
+	</form>
+	<br />
 	<table cellpadding=4 cellspacing=1 border=0 class="tblborder" width="95%" align="center">
 		<tr class="tblhead">
 			<td colspan=5>{$lang->items['LANG_ACP_BEWERBFRM_TPL_OPTIONS_1']}</td>
@@ -18,7 +64,7 @@
 			<td><strong><p>{$lang->items['LANG_ACP_BEWERBFRM_TPL_OPTIONS_3']}</p></strong></td>
 			<td><strong><p>{$lang->items['LANG_ACP_BEWERBFRM_TPL_OPTIONS_4']}</p></strong></td>
 			<td><strong><p>{$lang->items['LANG_ACP_BEWERBFRM_TPL_OPTIONS_5']}</p></strong></td>
-			<td><strong><p>{$lang->items['LANG_ACP_BEWERBFRM_TPL_OPTIONS_6']}</p></strong></td>
+			<td></td>
 		</tr>
 		$bewerbungsformular_options_bit_var
 	</table>

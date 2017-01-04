@@ -23,12 +23,18 @@
 <text:LANG_ACP_BEWERBFRM_TPL_INFO_10>nur auf <a href="http://www.v-gn.de/wbb" target="_blank">www.v-gn.de</a> im entsprechenden Supportthread</LANG_ACP_BEWERBFRM_TPL_INFO_10:text>
 <text:LANG_ACP_BEWERBFRM_TPL_INFO_11><strong>KEIN</strong> Support per PN, Email, ICQ, MSN, AIM, Skype o.&auml;.</LANG_ACP_BEWERBFRM_TPL_INFO_11:text>
 
-<text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_1>Optionen</LANG_ACP_BEWERBFRM_TPL_OPTIONS_1:text>
+<text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_1>Felder bearbeiten</LANG_ACP_BEWERBFRM_TPL_OPTIONS_1:text>
 <text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_2>Feld-ID</LANG_ACP_BEWERBFRM_TPL_OPTIONS_2:text>
 <text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_3>Feld-Typ</LANG_ACP_BEWERBFRM_TPL_OPTIONS_3:text>
-<text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_4>Feld-Name</LANG_ACP_BEWERBFRM_TPL_OPTIONS_4:text>
+<text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_4>Feld-Beschreibung</LANG_ACP_BEWERBFRM_TPL_OPTIONS_4:text>
 <text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_5>auf Seite</LANG_ACP_BEWERBFRM_TPL_OPTIONS_5:text>
-<text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_6>bearbeiten</LANG_ACP_BEWERBFRM_TPL_OPTIONS_6:text>
+<text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_6>Felder hinzuf&uuml;gen</LANG_ACP_BEWERBFRM_TPL_OPTIONS_6:text>
+<text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_7>Feld hinzuf&uuml;gen</LANG_ACP_BEWERBFRM_TPL_OPTIONS_7:text>
+<text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_2>Seite:</LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_2:text>
+<text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_3>Feldtyp:</LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_3:text>
+<text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_4>Beschreibung des Feldes (linke Seite):</LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_4:text>
+<text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_5>Vorgefertigter Inhalt des Feldes:<br /> <b>dropdown</b> und <b>checkbox</b> - Jede Zeile eine Option, die ausgew&auml;hlt werden kann,<br /> <b>textarea</b> und <b>text</b> - Text, der bei Aufruf im Feld stehen soll,<br /> <b>number</b> - Zahl, die bei Aufruf im Feld stehen soll.</LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_5:text>
+<text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_6>Speichern</LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_6:text>
 
 <text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_1>Feld mit der ID {$fieldid} bearbeiten.</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_1:text>
 <text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_2>Feldattributname</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_2:text>
@@ -48,8 +54,6 @@
 <text:LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_3>Nutze bitte die Eingabemaske, um Daten zu speichern!</LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_3:text>
 <text:LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_4>Es fehlt eine ID!</LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_4:text>
 <text:LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_4>Bitte gib den Typ des Feldes an!</LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_4:text>
-
-<text:LANG_ACP_BEWERBFRM_TPL_DROPDOWN_OPTIONS_1>F&uuml;ge Option-Reihe hinzu</LANG_ACP_BEWERBFRM_TPL_DROPDOWN_OPTIONS_1:text>
 
 <text:LANG_ACP_BEWERBFRM_TPL_DELFIELD_1>M&ouml;chtest du das Feld mit der ID <u>{$fieldid}</u> wirklich l&ouml;schen?</LANG_ACP_BEWERBFRM_TPL_DELFIELD_1:text>
 <text:LANG_ACP_BEWERBFRM_TPL_DELFIELD_2>Ja</LANG_ACP_BEWERBFRM_TPL_DELFIELD_2:text>
