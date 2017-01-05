@@ -8,7 +8,7 @@ require './acp/lib/options.inc.php';
 if (isset($_REQUEST['page'])) {
 	$page = intval($_REQUEST['page']);
 } else {
-	$page = 1;
+	$page = 0;
 }
 
 $sql_query = "SELECT page FROM bb" . $n . "_bewerbungsformular_fields WHERE page='" . $page . "'ORDER BY ID ASC;";
