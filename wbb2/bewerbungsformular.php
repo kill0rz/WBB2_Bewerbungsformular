@@ -26,18 +26,58 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 		eval("\$bewerbungsformular_field_bit .= \"" . $tpl->get('bewerbungsformular_field_bit') . "\";");
 	} else {
 		// Im Formular
-		$sql_query = "SELECT page FROM bb" . $n . "_bewerbungsformular_fields WHERE page='" . $page . "'ORDER BY ID ASC;";
+		$sql_query = "SELECT * FROM bb" . $n . "_bewerbungsformular_fields WHERE page='" . $page . "'ORDER BY ID ASC;";
 		$result = $db->query($sql_query);
 		while ($row = $db->fetch_array($result)) {
 			$id = intval($row['ID']);
 			$tupelclass1 = getone($count++, "tablea", "tableb");
 			$tupelclass2 = getone($count++, "tablea", "tableb");
-			$fieldcontent = htmlentities($row['fieldcontent']);
 			$fieldname = htmlentities($row['fieldname']);
+
+			switch (intval($row['fieldtype'])) {
+				case 1:
+					// Dropdown
+					$dropdown_options = explode("\n", $row['fieldcontent']);
+					$fieldcontent = "<select name='sendfield[{$id}]'>\n";
+					foreach ($dropdown_options as $dropdown_option) {
+						$fieldcontent .= "<option>" . htmlentities(str_replace("\n", '', $dropdown_option)) . "</option>\n";
+					}
+					$fieldcontent .= "</select>\n";
+					break;
+
+				case 2:
+					// Number
+					$fieldcontent = "<input type='number' value='" . intval($row['fieldcontent']) . "' name='sendfield[{$id}]'>\n";
+					break;
+
+				case 3:
+					// Text
+					$fieldcontent = "<input type='text' value='" . htmlentities($row['fieldcontent']) . "' name='sendfield[{$id}]'>\n";
+					break;
+
+				case 4:
+					// Textarea
+					$fieldcontent = "<textarea name='sendfield[{$id}]'>" . htmlentities($row['fieldcontent']) . "</textarea>\n";
+					break;
+
+				case 5:
+					// Checkboxen
+					$checkbox_options = explode("\n", $row['fieldcontent']);
+					$fieldcontent = "<fieldset name='sendfield[{$id}]'>\n";
+					foreach ($checkbox_options as $checkbox_option) {
+						$fieldcontent .= "<input type='checkbox' " . htmlentities(str_replace("\n", '', $checkbox_option)) . "> " . htmlentities(str_replace("\n", '', $checkbox_option)) . "<br />\n";
+					}
+					$fieldcontent .= "</fieldset>\n";
+					break;
+
+				default:
+					# code...
+					break;
+			}
 			eval("\$bewerbungsformular_field_bit .= \"" . $tpl->get('bewerbungsformular_field_bit') . "\";");
 		}
 	}
-	$nextpage = $page++;
+	$nextpage = $page + 1;
 	eval("\$tpl->output(\"" . $tpl->get("bewerbungsformular") . "\");");
 } else {
 	// Fehlerdialog
