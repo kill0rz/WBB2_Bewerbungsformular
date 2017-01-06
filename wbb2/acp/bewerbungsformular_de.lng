@@ -72,6 +72,9 @@
 [bewerbfrm]
 
 <text:LANG_BEWERBFRM_TITLE>Bewerbungsformular</LANG_BEWERBFRM_TITLE:text>
+<text:LANG_BEWERBFRM_WEITER>Weiter</LANG_BEWERBFRM_WEITER:text>
+<text:LANG_BEWERBFRM_COPYRIGHT>Bewerbungsformular 1.0 &copy; 2017 by <a href='http://kill0rz.com/' target='_blank'>kill0rz<a></LANG_BEWERBFRM_COPYRIGHT:text>
+<text:LANG_BEWERBFRM_INDEX_1>Bewerbungsformular</LANG_BEWERBFRM_INDEX_1:text>
 
 
 [wiw]

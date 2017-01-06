@@ -1,2 +1,4 @@
-<td>{$row['fieldname']}</td>
-<td>{$row['fieldcontent']}</td>
+<tr class="{$rowclass}">
+	<td>{$fieldname}</td>
+	<td>{$fieldcontent}</td>
+</tr>

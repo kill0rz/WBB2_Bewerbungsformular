@@ -31,29 +31,20 @@
 			<table cellpadding="4" cellspacing="1" border="0" style="width:95%" class="tableinborder">
 				<tr class="tabletitle">
 					<td colspan="4" align="center">
-						<font size='5'><b>Willkommen beim Retter-Radio</b></font>
+						<font size='5'><b>{$bewerbungsformular_options_db['startpage_title']}</b></font>
 					</td>
 				</tr>
-				<tr>
-					<td class="tablea" align="left" width="50%">
-						<span class="smallfont">
-							test
-						</span>
-					</td>
-					<td class="tablea" align="center" width="50%">
-						test2
-					</td>
-				</tr>
+				{$bewerbungsformular_field_bit}
 				<tr align="left">
 					<td class="tablea" align="center" colspan="2">
 						<span class="normalfont">
-							<button type="button" onclick="location.href='./bewerbungsformular.php?page=1';">Weiter</button>
+							<button type="button" onclick="location.href='./bewerbungsformular.php?page=1';">{$lang->items['LANG_BEWERBFRM_WEITER']}</button>
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<td class="tabletitle" align="right" colspan="4">
-						<span class="smallfont"><b>Bewerbungsformular 1.0 &copy; 2017 by <a href='http://kill0rz.com/' target='_blank'>kill0rz</a></b></span>
+						<span class="smallfont"><b>{$lang->items['LANG_BEWERBFRM_COPYRIGHT']}</b></span>
 					</td>
 				</tr>
 			</table>
