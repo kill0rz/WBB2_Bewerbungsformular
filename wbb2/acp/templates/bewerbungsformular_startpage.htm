@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="{$lang->items['LANG_GLOBAL_ENCODING']}"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{$lang->items['LANG_GLOBAL_DIRECTION']}" lang="{$lang->items['LANG_GLOBAL_LANGCODE']}" xml:lang="{$lang->items['LANG_GLOBAL_LANGCODE']}">
+
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html;charset={$lang->items['LANG_GLOBAL_ENCODING']}" />
+	<link rel="stylesheet" href="css/main.css" />
+	<script src="./js/bewerbungsformular.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<table cellpadding=2 cellspacing=1 border=0 class="tblborder" width="95%" align="center">
+		<tr class="tblhead">
+			<td colspan=5>{$lang->items['LANG_ACP_BEWERBFRM_TPL_STARTPAGE_1']}</td>
+		</tr>
+		<form name="startpage" method="post" action="./bewerbungsformular_admin.php?action=startpage&amp;fieldid={$fieldid}&amp;sid={$session['hash']}">
+			<tr class="firstrow">
+				<td><strong><u><p>{$lang->items['LANG_ACP_BEWERBFRM_TPL_STARTPAGE_2']}</p></u></strong></td>
+				<td><strong><u><p>{$lang->items['LANG_ACP_BEWERBFRM_TPL_STARTPAGE_3']}</p></u></strong></td>
+			</tr>
+			<tr class="secondrow">
+				<td><b>Sollen Bewerbungen entgegengenommen werden?</b></td>
+				<td>
+					<select name="savestartpage_online">
+						<option value="1" {$savestartpage_online_selected[1]}>{$lang->items['LANG_ACP_BEWERBFRM_TPL_STARTPAGE_ONLINE']}</option>
+						<option value="0" {$savestartpage_online_selected[0]}>{$lang->items['LANG_ACP_BEWERBFRM_TPL_STARTPAGE_OFFLINE']}</option>
+					</select>
+				</td>
+			</tr>
+			<tr class="firstrow">
+				<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_STARTPAGE_5']}</td>
+				<td>
+					<input type="text" name="savestartpage_title" value="{$bewerbungsformular_options_db['startpage_title']}">
+				</td>
+			</tr>
+			<tr class="secondrow">
+				<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_STARTPAGE_6']}</td>
+				<td>
+					<textarea name="savestartpage_left" rows="7" cols="150">{$bewerbungsformular_options_db['startpage_left']}</textarea>
+				</td>
+			</tr>
+			<tr class="firstrow">
+				<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_STARTPAGE_7']}</td>
+				<td>
+					<textarea name="savestartpage_right" rows="7" cols="150">{$bewerbungsformular_options_db['startpage_right']}</textarea>
+				</td>
+			</tr>
+			<tr class="secondrow">
+				<td></td>
+				<td>
+					<input type="submit" name="formsub" value="{$lang->items['LANG_ACP_BEWERBFRM_TPL_STARTPAGE_4']}">
+				</td>
+			</tr>
+		</form>
+	</table>
+</body>
+
+</html>

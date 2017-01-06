@@ -25,14 +25,14 @@
 </wBBgroupvariable>
 
 <wBBacpmenuitemgroup>
-	<name>bewerbungsformular</name>
+	<name>BEWERBUNGSFORMULAR</name>
 	<condition></condition>
 	<conditiontype>OR</conditiontype>
 	<acpmode>2</acpmode>
 </wBBacpmenuitemgroup>
 
 <wBBacpmenuitem>
-	<name>bewerbungsformular_INDEX</name>
+	<name>BEWERBUNGSFORMULAR_INDEX</name>
 	<title>Bewerbungsformular</title>
 	<group>bewerbungsformular</group>
 	<link>bewerbungsformular_admin.php?action=info</link>
@@ -45,8 +45,19 @@
 </wBBacpmenuitem>
 
 <wBBacpmenuitem>
-	<name>bewerbungsformular_OPTIONS</name>
-	<title>Optionen</title>
+	<name>BEWERBUNGSFORMULAR_STARTPAGE</name>
+	<title>Startseite bearbeiten</title>
+	<group>bewerbungsformular</group>
+	<link>bewerbungsformular_admin.php?action=startpage</link>
+	<linkformat></linkformat>
+	<condition>a_can_bewerbungsformular_edit</condition>
+	<conditiontype>OR</conditiontype>
+	<acpmode>2</acpmode>
+</wBBacpmenuitem>
+
+<wBBacpmenuitem>
+	<name>BEWERBUNGSFORMULAR_OPTIONS</name>
+	<title>Felder bearbeiten</title>
 	<group>bewerbungsformular</group>
 	<link>bewerbungsformular_admin.php?action=options</link>
 	<linkformat></linkformat>

@@ -211,6 +211,25 @@ switch ($action) {
 		}
 		break;
 
+	case 'startpage':
+		//todo
+		if (isset($_POST['startpage_left'])) {
+			// Daten speichern
+		} else {
+			// Eingabemaske
+			$bewerbungsformular_options_db = $db->query_first("SELECT * FROM bb" . $n . "_bewerbungsformular_options;");
+			if ($bewerbungsformular_options_db['isonline'] == "1") {
+				$savestartpage_online_selected[1] = "selected";
+				$savestartpage_online_selected[0] = "";
+			} else {
+				$savestartpage_online_selected[1] = "";
+				$savestartpage_online_selected[0] = "selected";
+			}
+
+			eval("\$tpl->output(\"" . $tpl->get('bewerbungsformular_startpage', 1) . "\");");
+		}
+		break;
+
 	default:
 		eval("\$tpl->output(\"" . $tpl->get('bewerbungsformular_info', 1) . "\");");
 		break;
