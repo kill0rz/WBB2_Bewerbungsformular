@@ -59,7 +59,7 @@ switch ($action) {
 		// Felder bearbeiten
 		$count = 0;
 		$bewerbungsformular_options_bit_var = '';
-		$sql = "SELECT * FROM bb" . $n . "_bewerbungsformular_fields ORDER BY page ASC, fieldtype ASC, fieldname ASC;";
+		$sql = "SELECT f.*,ft.typename FROM bb" . $n . "_bewerbungsformular_fields f JOIN bb" . $n . "_bewerbungsformular_fieldtypes ft ON ft.ID=f.fieldtype ORDER BY page ASC, fieldtype ASC, fieldname ASC;";
 		$result = $db->query($sql);
 		while ($row = $db->fetch_array($result)) {
 			$rowclass = getone($count++, "firstrow", "secondrow");
