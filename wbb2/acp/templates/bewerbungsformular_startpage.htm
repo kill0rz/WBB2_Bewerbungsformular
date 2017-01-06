@@ -22,7 +22,7 @@
 			<tr class="secondrow">
 				<td><b>Sollen Bewerbungen entgegengenommen werden?</b></td>
 				<td>
-					<select name="savestartpage_online">
+					<select name="savestartpage_online" required>
 						<option value="1" {$savestartpage_online_selected[1]}>{$lang->items['LANG_ACP_BEWERBFRM_TPL_STARTPAGE_ONLINE']}</option>
 						<option value="0" {$savestartpage_online_selected[0]}>{$lang->items['LANG_ACP_BEWERBFRM_TPL_STARTPAGE_OFFLINE']}</option>
 					</select>
@@ -31,7 +31,7 @@
 			<tr class="firstrow">
 				<td>{$lang->items['LANG_ACP_BEWERBFRM_TPL_STARTPAGE_5']}</td>
 				<td>
-					<input type="text" name="savestartpage_title" value="{$bewerbungsformular_options_db['startpage_title']}">
+					<input type="text" name="savestartpage_title" value="{$bewerbungsformular_options_db['startpage_title']}" required>
 				</td>
 			</tr>
 			<tr class="secondrow">

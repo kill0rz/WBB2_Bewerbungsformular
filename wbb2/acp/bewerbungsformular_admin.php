@@ -212,9 +212,28 @@ switch ($action) {
 		break;
 
 	case 'startpage':
-		//todo
-		if (isset($_POST['startpage_left'])) {
+		if (isset($_POST['savestartpage_online']) && trim($_POST['savestartpage_online']) != '' && isset($_POST['savestartpage_title']) && trim($_POST['savestartpage_title']) != '') {
 			// Daten speichern
+			$save = array();
+
+			if (isset($_POST['savestartpage_left']) && trim($_POST['savestartpage_left']) != '') {
+				$save['savestartpage_left'] = mysqli_real_escape_string($db->link_id, trim($_POST['savestartpage_left']));
+			} else {
+				$save['savestartpage_left'] = '';
+			}
+
+			if (isset($_POST['savestartpage_right']) && trim($_POST['savestartpage_right']) != '') {
+				$save['savestartpage_right'] = mysqli_real_escape_string($db->link_id, trim($_POST['savestartpage_right']));
+			} else {
+				$save['savestartpage_right'] = '';
+			}
+
+			$save['savestartpage_title'] = mysqli_real_escape_string($db->link_id, trim($_POST['savestartpage_title']));
+			$save['savestartpage_online'] = intval(trim($_POST['savestartpage_online'])) == 1 ? 1 : 0;
+
+			$sql_query = "UPDATE bb" . $n . "_bewerbungsformular_options SET startpage_left='" . $save['savestartpage_left'] . "',startpage_right='" . $save['savestartpage_right'] . "',startpage_title='" . $save['savestartpage_title'] . "',isonline='" . $save['savestartpage_online'] . "';";
+			$db->query($sql_query);
+			header("Location: bewerbungsformular_admin.php?action=startpage&sid={$session['hash']}");
 		} else {
 			// Eingabemaske
 			$bewerbungsformular_options_db = $db->query_first("SELECT * FROM bb" . $n . "_bewerbungsformular_options;");
