@@ -17,7 +17,10 @@ $count = 0;
 
 if ($page == 0) {
 	// Startseite
-	$rowclass = getone($count++, "firstrow", "secondrow");
+	$tupelclass1 = getone($count++, "tablea", "tableb");
+	$tupelclass2 = getone($count++, "tablea", "tableb");
+	$fieldname = $bewerbungsformular_options_db['startpage_left'];
+	$fieldcontent = $bewerbungsformular_options_db['startpage_right'];
 	eval("\$bewerbungsformular_field_bit .= \"" . $tpl->get('bewerbungsformular_field_bit') . "\";");
 } else {
 	// Im Formular
@@ -25,7 +28,8 @@ if ($page == 0) {
 	$result = $db->query($sql_query);
 	while ($row = $db->fetch_array($result)) {
 		$id = intval($row['ID']);
-		$rowclass = getone($count++, "firstrow", "secondrow");
+		$tupelclass1 = getone($count++, "tablea", "tableb");
+		$tupelclass2 = getone($count++, "tablea", "tableb");
 		$fieldcontent = htmlentities($row['fieldcontent']);
 		$fieldname = htmlentities($row['fieldname']);
 		eval("\$bewerbungsformular_field_bit .= \"" . $tpl->get('bewerbungsformular_field_bit') . "\";");
