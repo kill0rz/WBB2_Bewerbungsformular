@@ -35,4 +35,5 @@ if ($page == 0) {
 		eval("\$bewerbungsformular_field_bit .= \"" . $tpl->get('bewerbungsformular_field_bit') . "\";");
 	}
 }
+$nextpage = $page++;
 eval("\$tpl->output(\"" . $tpl->get("bewerbungsformular") . "\");");

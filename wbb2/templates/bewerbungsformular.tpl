@@ -38,7 +38,7 @@
 				<tr align="left">
 					<td class="tablea" align="center" colspan="2">
 						<span class="normalfont">
-							<button type="button" onclick="location.href='./bewerbungsformular.php?page=1';">{$lang->items['LANG_BEWERBFRM_WEITER']}</button>
+							<button type="button" onclick="location.href='./bewerbungsformular.php?page={$nextpage}';">{$lang->items['LANG_BEWERBFRM_WEITER']}</button>
 						</span>
 					</td>
 				</tr>
