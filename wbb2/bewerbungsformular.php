@@ -11,6 +11,22 @@ if (isset($_REQUEST['page'])) {
 	$page = 0;
 }
 
+function get_next_page() {
+	global $db, $n;
+	$sql = "SELECT page FROM bb" . $n . "_bewerbungsformular_fields GROUP BY page ORDER BY page ASC, ID ASC;";
+
+	$result = $db->query($sql);
+	$pagecount = 0;
+	while ($row = $db->fetch_array($result)) {
+		if ($pagecount + 1 == $row['page']) {
+			$pagecount++;
+		} else {
+			break;
+		}
+	}
+	return $pagecount + 1;
+}
+
 $lang->load("BEWERBFRM");
 $bewerbungsformular_options_db = $db->query_first("SELECT * FROM bb" . $n . "_bewerbungsformular_options;");
 $count = 0;
@@ -24,6 +40,11 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 		$fieldname = $bewerbungsformular_options_db['startpage_left'];
 		$fieldcontent = $bewerbungsformular_options_db['startpage_right'];
 		eval("\$bewerbungsformular_field_bit .= \"" . $tpl->get('bewerbungsformular_field_bit') . "\";");
+	} elseif ($page == get_next_page()) {
+		// last page
+
+		// 1) check all params set in cookie
+		// 2) save all data to db
 	} else {
 		// Im Formular
 		$sql_query = "SELECT * FROM bb" . $n . "_bewerbungsformular_fields WHERE page='" . $page . "'ORDER BY ID ASC;";
