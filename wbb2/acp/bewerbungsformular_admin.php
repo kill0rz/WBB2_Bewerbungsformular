@@ -217,7 +217,7 @@ switch ($action) {
 			$save = array();
 
 			if (isset($_POST['savestartpage_left']) && trim($_POST['savestartpage_left']) != '') {
-				$save['savestartpage_left'] = mysqli_real_escape_string($db->link_id, trim($_POST['savestartpage_left']));
+				$save['savestartpage_left'] = mysqli_real_escape_string($db->link_id, str_replace("\n", "<br />", trim($_POST['savestartpage_left'])));
 			} else {
 				$save['savestartpage_left'] = '';
 			}
