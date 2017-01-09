@@ -31,6 +31,12 @@ $lang->load("BEWERBFRM");
 $bewerbungsformular_options_db = $db->query_first("SELECT * FROM bb" . $n . "_bewerbungsformular_options;");
 $count = 0;
 
+// debug
+if ($page > 1) {
+	print_r($_POST);
+	die();
+}
+
 // check if Bewerbungsformular is online
 if ($bewerbungsformular_options_db['isonline'] == 1) {
 	if ($page == 0) {

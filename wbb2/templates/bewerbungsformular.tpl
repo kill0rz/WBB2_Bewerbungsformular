@@ -28,26 +28,28 @@
 			</td>
 		</tr>
 		<tr>
-			<table cellpadding="4" cellspacing="1" border="0" style="width:95%" class="tableinborder">
-				<tr class="tabletitle">
-					<td colspan="4" align="center">
-						<font size='5'><b>{$bewerbungsformular_options_db['startpage_title']}</b></font>
-					</td>
-				</tr>
-				{$bewerbungsformular_field_bit}
-				<tr align="left">
-					<td class="tablea" align="center" colspan="2">
-						<span class="normalfont">
-							<button type="button" onclick="location.href='./bewerbungsformular.php?page={$nextpage}';">{$lang->items['LANG_BEWERBFRM_WEITER']}</button>
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<td class="tabletitle" align="right" colspan="4">
-						<span class="smallfont"><b>{$lang->items['LANG_BEWERBFRM_COPYRIGHT']}</b></span>
-					</td>
-				</tr>
-			</table>
+			<form action="./bewerbungsformular.php?page={$nextpage}" method="post" accept-charset="utf-8">
+				<table cellpadding="4" cellspacing="1" border="0" style="width:95%" class="tableinborder">
+					<tr class="tabletitle">
+						<td colspan="4" align="center">
+							<font size='5'><b>{$bewerbungsformular_options_db['startpage_title']}</b></font>
+						</td>
+					</tr>
+					{$bewerbungsformular_field_bit}
+					<tr align="left">
+						<td class="tablea" align="center" colspan="2">
+							<span class="normalfont">
+								<input type="submit" value="{$lang->items['LANG_BEWERBFRM_WEITER']}" />
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="tabletitle" align="right" colspan="4">
+							<span class="smallfont"><b>{$lang->items['LANG_BEWERBFRM_COPYRIGHT']}</b></span>
+						</td>
+					</tr>
+				</table>
+			</form>
 		</tr>
 	</table>
 	$footer
