@@ -31,7 +31,7 @@ $lang->load("BEWERBFRM");
 $bewerbungsformular_options_db = $db->query_first("SELECT * FROM bb" . $n . "_bewerbungsformular_options;");
 $count = 0;
 
-// save data
+// save data tmp
 if ($page > 1) {
 	if (isset($_SESSION['bewerbungsformular_savedata'])) {
 		$_SESSION['bewerbungsformular_savedata'] = array_merge($_POST, $_SESSION['bewerbungsformular_savedata']);
@@ -53,7 +53,8 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 		// last page
 
 		// 1) check all params set in cookie
-		// 2) save all data to db
+		// 	anzahl felder == coun($_SESSION['bewerbungsformular_savedata'])
+		// 2) save all data to db, to file, mail etc.
 	} else {
 		// Im Formular
 		$sql_query = "SELECT * FROM bb" . $n . "_bewerbungsformular_fields WHERE page='" . $page . "'ORDER BY ID ASC;";
