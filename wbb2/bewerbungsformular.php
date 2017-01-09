@@ -31,10 +31,13 @@ $lang->load("BEWERBFRM");
 $bewerbungsformular_options_db = $db->query_first("SELECT * FROM bb" . $n . "_bewerbungsformular_options;");
 $count = 0;
 
-// debug
+// save data
 if ($page > 1) {
-	print_r($_POST);
-	die();
+	if (isset($_SESSION['bewerbungsformular_savedata'])) {
+		$_SESSION['bewerbungsformular_savedata'] = array_merge($_POST, $_SESSION['bewerbungsformular_savedata']);
+	} else {
+		$_SESSION['bewerbungsformular_savedata'] = $_POST;
+	}
 }
 
 // check if Bewerbungsformular is online
