@@ -90,9 +90,9 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 				case 5:
 					// Checkboxen
 					$checkbox_options = explode("\n", $row['fieldcontent']);
-					$fieldcontent = "<fieldset name='sendfield[{$id}]'>\n";
+					$fieldcontent = "<fieldset>\n";
 					foreach ($checkbox_options as $checkbox_option) {
-						$fieldcontent .= "<input type='checkbox' " . htmlentities(str_replace("\n", '', $checkbox_option)) . "> " . htmlentities(str_replace("\n", '', $checkbox_option)) . "<br />\n";
+						$fieldcontent .= "<input name='sendfield[{$id}][]' type='checkbox' " . htmlentities(str_replace("\n", '', $checkbox_option)) . " value='" . htmlentities(str_replace("\n", '', $checkbox_option)) . "'> " . htmlentities(str_replace("\n", '', $checkbox_option)) . "<br />\n";
 					}
 					$fieldcontent .= "</fieldset>\n";
 					break;
