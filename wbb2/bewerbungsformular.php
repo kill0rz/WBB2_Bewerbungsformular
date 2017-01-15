@@ -33,10 +33,9 @@ $count = 0;
 
 // save data tmp
 if ($page > 1) {
-	if (isset($_SESSION['bewerbungsformular_savedata'])) {
-		$_SESSION['bewerbungsformular_savedata'] = array_merge($_POST, $_SESSION['bewerbungsformular_savedata']);
-	} else {
-		$_SESSION['bewerbungsformular_savedata'] = $_POST;
+	$hiddenfields = '';
+	foreach ($_POST['sendfield'] as $key => $value) {
+		$hiddenfields .= "<input type='hidden' name='sendfield[{$key}]' value='{$value}' />\n";
 	}
 }
 
@@ -53,7 +52,16 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 		// last page
 
 		// 1) check all params set in cookie
-		// 	anzahl felder == coun($_SESSION['bewerbungsformular_savedata'])
+		// 	anzahl felder == count($_SESSION['bewerbungsformular_savedata'])
+		$sql_query = "SELECT COUNT(ID) AS Anzahl FROM bb" . $n . "_bewerbungsformular_fields;";
+		$count_fields = $db->query_first($sql_query);
+		if ($count_fields['Anzahl'] == count($_SESSION['bewerbungsformular_savedata'])) {
+			echo "k";
+		} else {
+			echo $count_fields['Anzahl'] . " - " . count($_SESSION['bewerbungsformular_savedata']);
+			print_r($_SESSION['bewerbungsformular_savedata']);
+		}
+
 		// 2) save all data to db, to file, mail etc.
 	} else {
 		// Im Formular

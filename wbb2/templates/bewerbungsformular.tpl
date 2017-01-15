@@ -29,6 +29,7 @@
 		</tr>
 		<tr>
 			<form action="./bewerbungsformular.php?page={$nextpage}" method="post" accept-charset="utf-8">
+				$hiddenfields
 				<table cellpadding="4" cellspacing="1" border="0" style="width:95%" class="tableinborder">
 					<tr class="tabletitle">
 						<td colspan="4" align="center">
