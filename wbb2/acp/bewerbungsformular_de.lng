@@ -36,6 +36,8 @@
 <text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_4>Beschreibung des Feldes (linke Seite):</LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_4:text>
 <text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_5>Vorgefertigter Inhalt des Feldes:<br /> <b>dropdown</b> und <b>checkbox</b> - Jede Zeile eine Option, die ausgew&auml;hlt werden kann,<br /> <b>textarea</b> und <b>text</b> - Text, der bei Aufruf im Feld stehen soll,<br /> <b>number</b> - Zahl, die bei Aufruf im Feld stehen soll.</LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_5:text>
 <text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_6>Speichern</LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_6:text>
+<text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_7>Ist das Feld erforderlich?</LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_7:text>
+<text:LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_8>Ist erforderlich</LANG_ACP_BEWERBFRM_TPL_OPTIONS_ADD_8:text>
 
 <text:LANG_ACP_BEWERBFRM_TPL_STARTPAGE_1>Startseite des Formulars bearbeiten</LANG_ACP_BEWERBFRM_TPL_STARTPAGE_1:text>
 <text:LANG_ACP_BEWERBFRM_TPL_STARTPAGE_2>Feldattributname</LANG_ACP_BEWERBFRM_TPL_STARTPAGE_2:text>
@@ -60,6 +62,8 @@
 <text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_4>Beschreibung des Feldes (linke Seite):</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_4:text>
 <text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_5>Vorgefertigter Inhalt des Feldes:<br /> <b>dropdown</b> und <b>checkbox</b> - Jede Zeile eine Option, die ausgew&auml;hlt werden kann,<br /> <b>textarea</b> und <b>text</b> - Text, der bei Aufruf im Feld stehen soll,<br /> <b>number</b> - Zahl, die bei Aufruf im Feld stehen soll.</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_5:text>
 <text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_6>Speichern</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_6:text>
+<text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_7>Ist das Feld erforderlich?</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_7:text>
+<text:LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_8>Ist erforderlich</LANG_ACP_BEWERBFRM_TPL_EDITFIELD_BIT_8:text>
 
 <text:LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_1>Bitte gib an, auf welcher Seite das Feld erscheinen soll!</LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_1:text>
 <text:LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_2>Bitte gib eine Beschreibung f&uuml;r das Feld an!</LANG_ACP_BEWERBFRM_TPL_SAVEFIELD_ERROR_2:text>

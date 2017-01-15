@@ -51,11 +51,10 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 	} elseif ($page == get_next_page()) {
 		// last page
 
-		// 1) check all params set in cookie
-		// 	anzahl felder == count($_SESSION['bewerbungsformular_savedata'])
-		$sql_query = "SELECT COUNT(ID) AS Anzahl FROM bb" . $n . "_bewerbungsformular_fields;";
+		// 1) check all params set in post
+		$sql_query = "SELECT COUNT(ID) AS Anzahl FROM bb" . $n . "_bewerbungsformular_fields WHERE required='1';";
 		$count_fields = $db->query_first($sql_query);
-		if ($count_fields['Anzahl'] == count($_SESSION['bewerbungsformular_savedata'])) {
+		if ($count_fields['Anzahl'] == count($_SESSION['bewerbungsformular_savedata']['sendfield'])) {
 			echo "k";
 		} else {
 			echo $count_fields['Anzahl'] . " - " . count($_SESSION['bewerbungsformular_savedata']);
