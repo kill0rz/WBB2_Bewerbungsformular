@@ -72,11 +72,17 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 			$tupelclass2 = getone($count++, "tablea", "tableb");
 			$fieldname = htmlentities($row['fieldname']);
 
+			if ($row['required'] == 1) {
+				$required = "required";
+			} else {
+				$required = "";
+			}
+
 			switch (intval($row['fieldtype'])) {
 				case 1:
 					// Dropdown
 					$dropdown_options = explode("\n", $row['fieldcontent']);
-					$fieldcontent = "<select name='sendfield[{$id}]'>\n";
+					$fieldcontent = "<select name='sendfield[{$id}]' {$required}>\n";
 					foreach ($dropdown_options as $dropdown_option) {
 						$fieldcontent .= "<option>" . htmlentities(str_replace("\n", '', $dropdown_option)) . "</option>\n";
 					}
@@ -85,17 +91,17 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 
 				case 2:
 					// Number
-					$fieldcontent = "<input type='number' value='" . intval($row['fieldcontent']) . "' name='sendfield[{$id}]'>\n";
+					$fieldcontent = "<input type='number' value='" . intval($row['fieldcontent']) . "' name='sendfield[{$id}]' {$required}>\n";
 					break;
 
 				case 3:
 					// Text
-					$fieldcontent = "<input type='text' value='" . htmlentities($row['fieldcontent']) . "' name='sendfield[{$id}]'>\n";
+					$fieldcontent = "<input type='text' value='" . htmlentities($row['fieldcontent']) . "' name='sendfield[{$id}]' {$required}>\n";
 					break;
 
 				case 4:
 					// Textarea
-					$fieldcontent = "<textarea name='sendfield[{$id}]'>" . htmlentities($row['fieldcontent']) . "</textarea>\n";
+					$fieldcontent = "<textarea name='sendfield[{$id}]' {$required}>" . htmlentities($row['fieldcontent']) . "</textarea>\n";
 					break;
 
 				case 5:
