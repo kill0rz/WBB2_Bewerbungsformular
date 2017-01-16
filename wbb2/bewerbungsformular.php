@@ -54,9 +54,31 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 		// 1) check all params set in post
 		$sql_query = "SELECT COUNT(ID) AS Anzahl FROM bb" . $n . "_bewerbungsformular_fields WHERE required='1';";
 		$count_fields = $db->query_first($sql_query);
-		if ($count_fields['Anzahl'] == count($_SESSION['bewerbungsformular_savedata']['sendfield'])) {
-			// 2) save all data to db, to file, mail etc.
-			$sql_query = "INSERT INTO bb1";
+		if ($count_fields['Anzahl'] == count($_POST['sendfield'])) {
+			// 2) send all data via mail
+			$mailtext = "Hallo, \n\nes gibt eine neue Bewerbung!\n\n\nFolgende Angaben wurden gemacht:\n";
+			$subject = "neue Bewerbung im Forum!";
+			foreach ($_POST['sendfield'] as $key => $value) {
+				$mailtext .= $key . ": " . htmlentities($value) . "\n";
+			}
+
+			//mail versenden
+			$mime_boundary = "-----=" . md5(uniqid(mt_rand(), 1));
+
+			$header = "From:" . $adminmail . "<" . $adminmail . ">\n";
+			$header .= "Reply-To: " . $adminmail . "\n";
+
+			$header .= "MIME-Version: 1.0\r\n";
+			$header .= "Content-Type: multipart/mixed;\r\n";
+			$header .= " boundary=\"" . $mime_boundary . "\"\r\n";
+
+			$content = "This is a multi-part message in MIME format.\r\n\r\n";
+			$content .= "--" . $mime_boundary . "\r\n";
+			$content .= "Content-Type: text/html charset=\"iso-8859-1\"\r\n";
+			$content .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
+			$content .= $mailtext . "\r\n";
+
+			mail($mail_to_me, $subject, $content, $header);
 		} else {
 			echo $count_fields['Anzahl'] . " - " . count($_SESSION['bewerbungsformular_savedata']);
 			print_r($_SESSION['bewerbungsformular_savedata']);
