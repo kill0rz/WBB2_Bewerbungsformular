@@ -55,13 +55,13 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 		$sql_query = "SELECT COUNT(ID) AS Anzahl FROM bb" . $n . "_bewerbungsformular_fields WHERE required='1';";
 		$count_fields = $db->query_first($sql_query);
 		if ($count_fields['Anzahl'] == count($_SESSION['bewerbungsformular_savedata']['sendfield'])) {
-			echo "k";
+			// 2) save all data to db, to file, mail etc.
+			$sql_query = "INSERT INTO bb1";
 		} else {
 			echo $count_fields['Anzahl'] . " - " . count($_SESSION['bewerbungsformular_savedata']);
 			print_r($_SESSION['bewerbungsformular_savedata']);
 		}
 
-		// 2) save all data to db, to file, mail etc.
 	} else {
 		// Im Formular
 		$sql_query = "SELECT * FROM bb" . $n . "_bewerbungsformular_fields WHERE page='" . $page . "'ORDER BY ID ASC;";
@@ -114,8 +114,9 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 					$fieldcontent .= "</fieldset>\n";
 					break;
 
-				default:
-					# code...
+				case 6:
+					// E-Mail
+					$fieldcontent = "<input type='email' value='" . htmlentities($row['fieldcontent']) . "' name='sendfield[{$id}]' {$required}>\n";
 					break;
 			}
 			eval("\$bewerbungsformular_field_bit .= \"" . $tpl->get('bewerbungsformular_field_bit') . "\";");

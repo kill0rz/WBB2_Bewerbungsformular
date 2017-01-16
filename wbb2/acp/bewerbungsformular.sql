@@ -24,7 +24,8 @@ INSERT INTO `bb1_bewerbungsformular_fieldtypes` (`ID`, `typename`) VALUES
 (2, 'number'),
 (3, 'text'),
 (4, 'textarea'),
-(5, 'checkbox');
+(5, 'checkbox'),
+(6, 'email');
 
 DROP TABLE IF EXISTS `bb1_bewerbungsformular_options`;
 CREATE TABLE `bb1_bewerbungsformular_options` (
