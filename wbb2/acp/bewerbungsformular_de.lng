@@ -91,6 +91,8 @@
 <text:LANG_BEWERBFRM_COPYRIGHT>Bewerbungsformular 1.0 &copy; 2017 by <a href='http://kill0rz.com/' target='_blank'>kill0rz<a></LANG_BEWERBFRM_COPYRIGHT:text>
 <text:LANG_BEWERBFRM_TPL_STARTPAGE_ISOFFLINE_ERROR>Entschuldigung, aber zur Zeit nehmen wir keine Bewerbungen entgegen.</LANG_BEWERBFRM_TPL_STARTPAGE_ISOFFLINE_ERROR:text>
 <text:LANG_BEWERBFRM_INDEX_1>Bewerbungsformular</LANG_BEWERBFRM_INDEX_1:text>
+<text:LANG_BEWERBFRM_INDEX_2>Es gabe einen Fehler beim verschicken der Mail!</LANG_BEWERBFRM_INDEX_2:text>
+<text:LANG_BEWERBFRM_INDEX_3>Vielen Dank!<br />Die Bewerbung wurde erfolgreich verschickt!</LANG_BEWERBFRM_INDEX_3:text>
 
 
 [wiw]

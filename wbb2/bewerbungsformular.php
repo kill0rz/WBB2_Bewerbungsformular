@@ -78,7 +78,14 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 			$content .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
 			$content .= $mailtext . "\r\n";
 
-			mail($mail_to_me, $subject, $content, $header);
+			if (mail($mail_to_me, $subject, $content, $header)) {
+				$error = $lang->items["LANG_BEWERBFRM_INDEX_3"];
+				eval("\$tpl->output(\"" . $tpl->get("bewerbungsformular_success") . "\");");
+			} else {
+				$error = $lang->items["LANG_BEWERBFRM_INDEX_2"];
+				eval("\$tpl->output(\"" . $tpl->get("bewerbungsformular_error") . "\");");
+			}
+
 		} else {
 			echo $count_fields['Anzahl'] . " - " . count($_SESSION['bewerbungsformular_savedata']);
 			print_r($_SESSION['bewerbungsformular_savedata']);
