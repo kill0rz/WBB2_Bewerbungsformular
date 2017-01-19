@@ -59,7 +59,7 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 			$mailtext = "Hallo, \n\nes gibt eine neue Bewerbung!\n\n\nFolgende Angaben wurden gemacht:\n";
 			$subject = "neue Bewerbung im Forum!";
 			foreach ($_POST['sendfield'] as $key => $value) {
-				$mailtext .= $key . ": " . htmlentities($value) . "\n";
+				$mailtext .= $key . ": " . htmlspecialchars($value, ENT_NOQUOTES | ENT_HTML401, 'ISO-8859-1') . "\n";
 			}
 
 			//mail versenden
@@ -99,7 +99,7 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 			$id = intval($row['ID']);
 			$tupelclass1 = getone($count++, "tablea", "tableb");
 			$tupelclass2 = getone($count++, "tablea", "tableb");
-			$fieldname = htmlentities($row['fieldname']);
+			$fieldname = htmlspecialchars($row['fieldname'], ENT_NOQUOTES | ENT_HTML401, 'ISO-8859-1');
 
 			if ($row['required'] == 1) {
 				$required = "required";
@@ -113,7 +113,7 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 					$dropdown_options = explode("\n", $row['fieldcontent']);
 					$fieldcontent = "<select name='sendfield[{$id}]' {$required}>\n";
 					foreach ($dropdown_options as $dropdown_option) {
-						$fieldcontent .= "<option>" . htmlentities(str_replace("\n", '', $dropdown_option)) . "</option>\n";
+						$fieldcontent .= "<option>" . htmlspecialchars(str_replace("\n", '', $dropdown_option), ENT_NOQUOTES | ENT_HTML401, 'ISO-8859-1') . "</option>\n";
 					}
 					$fieldcontent .= "</select>\n";
 					break;
@@ -125,12 +125,12 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 
 				case 3:
 					// Text
-					$fieldcontent = "<input type='text' value='" . htmlentities($row['fieldcontent']) . "' name='sendfield[{$id}]' {$required}>\n";
+					$fieldcontent = "<input type='text' value='" . htmlspecialchars($row['fieldcontent'], ENT_NOQUOTES | ENT_HTML401, 'ISO-8859-1') . "' name='sendfield[{$id}]' {$required}>\n";
 					break;
 
 				case 4:
 					// Textarea
-					$fieldcontent = "<textarea name='sendfield[{$id}]' {$required}>" . htmlentities($row['fieldcontent']) . "</textarea>\n";
+					$fieldcontent = "<textarea name='sendfield[{$id}]' {$required}>" . htmlspecialchars($row['fieldcontent'], ENT_NOQUOTES | ENT_HTML401, 'ISO-8859-1') . "</textarea>\n";
 					break;
 
 				case 5:
@@ -138,14 +138,14 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 					$checkbox_options = explode("\n", $row['fieldcontent']);
 					$fieldcontent = "<fieldset>\n";
 					foreach ($checkbox_options as $checkbox_option) {
-						$fieldcontent .= "<input name='sendfield[{$id}][]' type='checkbox' " . htmlentities(str_replace("\n", '', $checkbox_option)) . " value='" . htmlentities(str_replace("\n", '', $checkbox_option)) . "'> " . htmlentities(str_replace("\n", '', $checkbox_option)) . "<br />\n";
+						$fieldcontent .= "<input name='sendfield[{$id}][]' type='checkbox' " . htmlspecialchars(str_replace("\n", '', $checkbox_option), ENT_NOQUOTES | ENT_HTML401, 'ISO-8859-1') . " value='" . htmlspecialchars(str_replace("\n", '', $checkbox_option), ENT_NOQUOTES | ENT_HTML401, 'ISO-8859-1') . "'> " . htmlspecialchars(str_replace("\n", '', $checkbox_option), ENT_NOQUOTES | ENT_HTML401, 'ISO-8859-1') . "<br />\n";
 					}
 					$fieldcontent .= "</fieldset>\n";
 					break;
 
 				case 6:
 					// E-Mail
-					$fieldcontent = "<input type='email' value='" . htmlentities($row['fieldcontent']) . "' name='sendfield[{$id}]' {$required}>\n";
+					$fieldcontent = "<input type='email' value='" . htmlspecialchars($row['fieldcontent'], ENT_NOQUOTES | ENT_HTML401, 'ISO-8859-1') . "' name='sendfield[{$id}]' {$required}>\n";
 					break;
 			}
 			eval("\$bewerbungsformular_field_bit .= \"" . $tpl->get('bewerbungsformular_field_bit') . "\";");
