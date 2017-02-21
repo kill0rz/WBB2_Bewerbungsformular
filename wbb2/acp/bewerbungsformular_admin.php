@@ -179,7 +179,7 @@ switch ($action) {
 			// Speichern!
 			$fieldcontent = (isset($_POST['savefield_fieldcontent']) && trim($_POST['savefield_fieldcontent']) != '') ? mysqli_real_escape_string($db->link_id, trim($_POST['savefield_fieldcontent'])) : '';
 			$fieldisrequired = (isset($_POST['savefield_required']) && trim($_POST['savefield_required']) == 'on') ? 1 : 0;
-			$sql = "UPDATE bb" . $n . "_bewerbungsformular_fields SET fieldcontent='" . $fieldcontent . "', fieldname='" . mysqli_real_escape_string($db->link_id, trim($_POST['savefield_fieldname'])) . "', page='" . intval(trim($_POST['savefield_page'])) . "'', required='" . $fieldisrequired . "', fieldtype='" . intval(trim($_POST['savefield_fieldtype'])) . "' WHERE ID='" . intval(trim($_POST['savefield_id'])) . "';";
+			$sql = "UPDATE bb" . $n . "_bewerbungsformular_fields SET fieldcontent='" . $fieldcontent . "', fieldname='" . mysqli_real_escape_string($db->link_id, trim($_POST['savefield_fieldname'])) . "', page='" . intval(trim($_POST['savefield_page'])) . "', required='" . $fieldisrequired . "', fieldtype='" . intval(trim($_POST['savefield_fieldtype'])) . "' WHERE ID='" . intval(trim($_POST['savefield_id'])) . "';";
 			$db->query($sql);
 
 			header("Location: bewerbungsformular_admin.php?action=options&sid={$session['hash']}");
