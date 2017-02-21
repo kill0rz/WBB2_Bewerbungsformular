@@ -56,7 +56,6 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 		// 1) check all params set in post
 		$sql_query = "SELECT COUNT(ID) AS Anzahl FROM bb" . $n . "_bewerbungsformular_fields WHERE required='1';";
 		$count_fields = $db->query_first($sql_query);
-		// if ($count_fields['Anzahl'] == count($_POST['sendfield'])) {
 		// 2) send all data via mail
 		$mailtext = "Hallo, \n\nes gibt eine neue Bewerbung!\n\n\nFolgende Angaben wurden gemacht:\n";
 		$subject = "Neue Bewerbung im Forum!";
@@ -83,7 +82,7 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 		// todo: die konfig muss irgendwo herkommen
 		include './bewerbungsformular_config.php';
 		if (mail($mail_to_me, $subject, $mail_content, $mail_header)) {
-			$error = $lang->items["LANG_BEWERBFRM_INDEX_3"];
+			$success = $lang->items["LANG_BEWERBFRM_INDEX_3"];
 			eval("\$tpl->output(\"" . $tpl->get("bewerbungsformular_success") . "\");");
 			die();
 		} else {
@@ -91,12 +90,6 @@ if ($bewerbungsformular_options_db['isonline'] == 1) {
 			eval("\$tpl->output(\"" . $tpl->get("bewerbungsformular_error") . "\");");
 			die();
 		}
-
-		// } else {
-		// echo $count_fields['Anzahl'] . " - " . count($_SESSION['bewerbungsformular_savedata']);
-		// print_r($_SESSION['bewerbungsformular_savedata']);
-		// }
-
 	} else {
 		// Im Formular
 		$sql_query = "SELECT * FROM bb" . $n . "_bewerbungsformular_fields WHERE page='" . $page . "'ORDER BY ID ASC;";
