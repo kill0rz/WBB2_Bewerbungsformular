@@ -12,7 +12,7 @@ CREATE TABLE `bb1_bewerbungsformular_fields` (
   `page` int(11) NOT NULL,
   `fieldtype` int(11) NOT NULL,
   `fieldname` varchar(500) NOT NULL,
-  `fieldcontent` varchar(500) NOT NULL,
+  `fieldcontent` varchar(65353) NOT NULL,
   `required` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`),
   KEY `fieldtype` (`fieldtype`),
